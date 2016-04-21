@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "entitypool.h"
+#include "repr.h"
 
 void
 assert(bool condition, const char *message) {
@@ -13,12 +14,21 @@ assert(bool condition, const char *message) {
 
 void
 test_entitypool() {
-	struct EntityPool *ep = fl_entitypool_new();
-	struct Entity *e = fl_create_entity(ep);
+	struct EntityPool *ep = entitypool_new();
+	repr_entitypool(ep);
 
-	fl_destroy_entity(ep, e);
-	assert(ep->entities == NULL, "Should free entity");
-	fl_entitypool_free(ep);
+	struct Entity *e = create_entity(ep);
+	repr_entity(e);
+
+	create_entity(ep);
+	create_entity(ep);
+	repr_entity(create_entity(ep));
+	repr_entitypool(ep);
+
+	destroy_entity(ep, e);
+	destroy_entity(ep, e);
+	repr_entitypool(ep);
+	entitypool_free(ep);
 }
 
 int

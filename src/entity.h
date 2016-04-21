@@ -4,10 +4,14 @@
 
 typedef unsigned int EntityId;
 
+/*
+ * Entities must be created and destroyed using the EntityPool.
+ * example:
+ * 		Entity *entity = create_entity(entitypool);
+ * 		destroy_entity(entitypool, entity);
+ */
 struct Entity {
 	EntityId id;
-	struct Entity *next;
-	/* TODO: Tags for lookup */
 };
 
 #endif
