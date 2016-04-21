@@ -2,3 +2,4 @@
 *.dblite
 *.o
 *.exe
+*.gch
