@@ -8,7 +8,7 @@ env = Environment(
 	ENV={ 'PATH' : os.environ.get('PATH') }
 )
 
-files = Glob('src/*.c')
+files = Glob('src/*.c') + Glob('src/collections/*.c')
 source = ['test/main.c'] + files
 
 env.Program('build/test', source=source)

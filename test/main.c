@@ -4,6 +4,8 @@
 #include "entitypool.h"
 #include "repr.h"
 
+#include "test_darray.h"
+
 void
 assert(bool condition, const char *message) {
 	if (!condition) {
@@ -35,6 +37,7 @@ int
 main (int argc, char *argv[]) {
 	printf("Starting tests\n");
 	test_entitypool();
+	test_darray_init();
 	printf("Tests done\n");
 	return 0;
 }
